@@ -1,4 +1,4 @@
-package model;
+package model.data_structures;
 
 public class Queue<E> implements IQueue<E> {
 

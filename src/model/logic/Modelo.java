@@ -1,4 +1,6 @@
-package model;
+package model.logic;
+
+import model.data_structures.Comparendo;
 
 public class Modelo {
 

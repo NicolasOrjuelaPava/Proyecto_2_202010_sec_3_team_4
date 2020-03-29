@@ -7,11 +7,11 @@ import java.io.LineNumberInputStream;
 
 import com.google.gson.Gson;
 
-import model.Comparendo;
-import model.LinkedList;
-import model.Modelo;
-import model.Queue;
-import model.Stack;
+import model.data_structures.Comparendo;
+import model.data_structures.LinkedList;
+import model.data_structures.Queue;
+import model.data_structures.Stack;
+import model.logic.Modelo;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -163,7 +163,7 @@ public class Controller {
 		//PRUEBA
 		System.out.println("----------------------------------------------------------------------------------------------------------------");
 		System.out.println("Total comparendos en el archivo: "+ lista.getSize());
-		System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
+		//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
 		System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
 		System.out.println("El tamaño de la lista es: "+ lista.getSize());
 		System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");

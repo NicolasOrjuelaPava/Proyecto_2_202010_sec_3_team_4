@@ -1,4 +1,4 @@
-package model;
+package model.data_structures;
 
 
 public class LinkedList<E> implements ILinkedList<E>{

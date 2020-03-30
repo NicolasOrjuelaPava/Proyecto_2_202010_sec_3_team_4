@@ -94,7 +94,7 @@ public class Controller {
 		
 		try {
 			FileInputStream inputStream;
-			inputStream = new FileInputStream(ARCHIVO_PEQUENO);
+			inputStream = new FileInputStream(ARCHIVO_MEDIANO);
 			InputStreamReader inputStreamreader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamreader);
 
@@ -162,6 +162,7 @@ public class Controller {
 	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1])).key.hashCOde()
+						
 						,new Comparendo(coleccionComparendos.features[i].properties.OBJECTID, 
 	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
 	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
@@ -194,6 +195,7 @@ public class Controller {
 		//OUTPUT en consola con información de la carga
 		System.out.println("");
 		System.out.println("Total comparendos en el archivo: "+ hashTableSC.getSize());
+		System.out.println(hashTableSC.getPrimero());
 			//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
 	//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
 		// System.out.println("El tamaño de la lista es: "+ lista.getSize());

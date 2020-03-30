@@ -34,9 +34,10 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 	private LinkedList<HashElement<K,V>> [] harray;
 	
 	//constructor
+	
 	public HashSeparateChaining(){
-		this(4);
-	}
+		this(5000);
+	} 
 	
 	public HashSeparateChaining (int ts){
 		
@@ -45,6 +46,10 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 		numElements = 0;
 		//OJO: SE PONE TABLESIZE O TS
 		harray = new LinkedList [tableSize];
+		
+		for (int i=0; i<harray.length;i++){
+			harray[i] = new LinkedList<HashElement<K,V>>();
+		}
 		
 		/*
 		LinkedList<K> list = new LinkedList<K>();
@@ -119,16 +124,31 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 		tableSize = newSize;
 		
 	}
+/*
+	@Override
+	public String getValue(K key) {
+		
+		return harray[0].getFirst().toString();
+
+	}
+	*/
+
+	public int getSize(){
+		return numElements;
+	}
 
 	@Override
 	public V getValue(K key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public int getSize(){
-		return numElements;
+	
+	public String getPrimero(){
+		return harray[0].getFirst().data.value.toString();
 	}
+	
+	
+	
 	
 	
 	

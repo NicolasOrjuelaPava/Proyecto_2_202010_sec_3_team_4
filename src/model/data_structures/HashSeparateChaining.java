@@ -4,24 +4,29 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 
 	//----------------------------------------------------------------------------------------------
 	//clase interna
-	class HashElement <K, V> implements Comparable<HashElement<K,V>>{
+	class HashElement <K, V> /*implements Comparable<HashElement<K,V>>*/ {
 		K key;
 		V value;
+		HashElement<K,V> next;
 		
 		public HashElement (K ke, V val){
 			this.key = ke;
 			this.value = val;
+			this.next = null;
 		}
-		
+		public void cambiarSiguiente(HashElement<K,V> E){
+			this.next = E;
+		}
+		/*
 		public int compareTo(HashElement<K,V> h){
 			if (h.value.toString().contains(this.toString())){
 				return 1;
 			}else{
 				return 0;
-			}
+			} 
 			
 			//return (((  (Comparable<HashSeparateChaining<K, V>.HashElement<K, V>>) h.key).compareTo((HashSeparateChaining<K, V>.HashElement<K, V>) this.key)));
-		}
+		} */
 
 	}
 	
@@ -112,26 +117,17 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 	//Resize la tabla de hash
 	public void reSize(int newSize){
 		
-
 		LinkedList<HashElement<K,V>>[] new_array = new LinkedList[newSize];
 		
-		for(int i=0; i<newSize;i++){
-			
+		for(int i=0; i<newSize;i++){	
 			new_array[i] = new LinkedList<HashElement<K,V>>();
 		}
 		
 		harray = new_array;
-		tableSize = newSize;
-		
+		tableSize = newSize;	
 	}
-/*
-	@Override
-	public String getValue(K key) {
-		
-		return harray[0].getFirst().toString();
 
-	}
-	*/
+	
 
 	public int getSize(){
 		return numElements;
@@ -143,10 +139,13 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 		return null;
 	}
 	
+	
+	//prueba
+	/*
 	public String getPrimero(){
 		return harray[0].getFirst().data.value.toString();
 	}
-	
+	*/
 	
 	
 	

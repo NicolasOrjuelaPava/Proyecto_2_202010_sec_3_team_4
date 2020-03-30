@@ -41,8 +41,13 @@ public class Comparendo implements Comparable<Comparendo> {
 	//COMPARABLE
 	@Override
 	public int compareTo(Comparendo o) {
-		
+		if (OBJECTID>o.OBJECTID){
+			return 1;
+		}else if (OBJECTID<o.OBJECTID){
+			return -1;
+		}else {
 		return 0;
+		}
 	}
 	
 	

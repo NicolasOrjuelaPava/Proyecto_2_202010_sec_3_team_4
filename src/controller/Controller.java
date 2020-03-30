@@ -84,7 +84,15 @@ public class Controller {
 	
 //es necesario configurar el buildpath del proyecto y agregar el gson.jar
 	//Metodo que carga los datos en la estructura
+	@SuppressWarnings("unchecked")
 	public static void cargar(){
+		
+		int mayorID = 0;
+		String fecha = "";
+		String infraccion ="";
+		String clase_vehiculo = "";
+		String tipo_servicio ="";
+		String localidad ="";
 		
 		lista = new LinkedList<Comparendo>();
 		stack = new Stack<Comparendo>();
@@ -94,7 +102,7 @@ public class Controller {
 		
 		try {
 			FileInputStream inputStream;
-			inputStream = new FileInputStream(ARCHIVO_MEDIANO);
+			inputStream = new FileInputStream(ARCHIVO_PEQUENO);
 			InputStreamReader inputStreamreader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamreader);
 
@@ -162,7 +170,6 @@ public class Controller {
 	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1])).key.hashCOde()
-						
 						,new Comparendo(coleccionComparendos.features[i].properties.OBJECTID, 
 	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
 	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
@@ -176,10 +183,22 @@ public class Controller {
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
 				
-				
 				//Carga en Hash Table Linear Probing
 				
 				
+				
+				//coger el mayor de una vez y cogerme la info
+				mayorID=coleccionComparendos.features[i].properties.OBJECTID;
+				
+				if (coleccionComparendos.features[i].properties.OBJECTID>mayorID){
+					mayorID = coleccionComparendos.features[i].properties.OBJECTID;
+				}
+				
+				fecha = coleccionComparendos.features[i].properties.FECHA_HORA;
+				infraccion = coleccionComparendos.features[i].properties.INFRACCION;
+				clase_vehiculo = coleccionComparendos.features[i].properties.CLASE_VEHICULO;
+				tipo_servicio = coleccionComparendos.features[i].properties.TIPO_SERVICIO;
+				localidad = coleccionComparendos.features[i].properties.LOCALIDAD;
 			}
 			
 			
@@ -195,15 +214,17 @@ public class Controller {
 		//OUTPUT en consola con información de la carga
 		System.out.println("");
 		System.out.println("Total comparendos en el archivo: "+ hashTableSC.getSize());
-		System.out.println(hashTableSC.getPrimero());
-			//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
+		//System.out.println(hashTableSC.getPrimero());
+		System.out.println("El comparendo con el mayor OBJECTID encontrado es: ");
+		System.out.println( mayorID+ " " + fecha +" " + infraccion + " " + clase_vehiculo + " " + tipo_servicio + " " + localidad);
+		
+		//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
 	//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
 		// System.out.println("El tamaño de la lista es: "+ lista.getSize());
 		// System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");
-		
-		
 	}
 	
+
 	
 	
 }

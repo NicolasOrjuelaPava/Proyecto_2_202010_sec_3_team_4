@@ -11,7 +11,9 @@ public class Comparendo implements Comparable<Comparendo> {
 	public String DES_INFRACCION;
 	public String LOCALIDAD;
 	public String MUNICIPIO;
-
+	
+	public KeyComparendo key;
+	
 	public double longitud;
 	public double latitud;
 	
@@ -28,6 +30,8 @@ public class Comparendo implements Comparable<Comparendo> {
 	
 		this.longitud = longitud;
 		this.latitud = latitud;
+		
+		this.key = new KeyComparendo(fechaHora, medioDeteccion, localidad);
 	}
 	
 	public String toString(){
@@ -41,6 +45,29 @@ public class Comparendo implements Comparable<Comparendo> {
 		return 0;
 	}
 	
+	
+	
+	public class KeyComparendo{
+		String fecha_hora, medio_deteccion, local;
+		
+		public KeyComparendo(String fh, String md, String l){
+			
+			fecha_hora = fh;
+			medio_deteccion = md;
+			local = l;
+		}
+		
+		
+		public int hashCOde(){
+			String s = fecha_hora + medio_deteccion + local;
+			int g = 31;
+			int hash = 0;
+			for (int i=0; i<s.length();i++){
+				hash = g*hash + s.charAt(i);
+			}
+			return hash;
+		}
+	}
 	
 
 

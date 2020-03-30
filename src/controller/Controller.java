@@ -8,6 +8,8 @@ import java.io.LineNumberInputStream;
 import com.google.gson.Gson;
 
 import model.data_structures.Comparendo;
+import model.data_structures.Comparendo.KeyComparendo;
+import model.data_structures.HashSeparateChaining;
 import model.data_structures.LinkedList;
 import model.data_structures.Queue;
 import model.data_structures.Stack;
@@ -28,6 +30,7 @@ public class Controller {
 	private static LinkedList<Comparendo> lista;
 	private static Stack<Comparendo> stack;
 	private static Queue<Comparendo> queue;
+	private static HashSeparateChaining hashTableSC;
 	
 	private static Modelo modelo;
 	
@@ -47,6 +50,7 @@ public class Controller {
 		modelo = new Modelo();
 	}
 
+	//CLASES INTERNAS
 	//modelamiento del JSon
 	static class Json{
 		String type;
@@ -79,15 +83,18 @@ public class Controller {
 	
 	
 //es necesario configurar el buildpath del proyecto y agregar el gson.jar
+	//Metodo que carga los datos en la estructura
 	public static void cargar(){
 		
 		lista = new LinkedList<Comparendo>();
 		stack = new Stack<Comparendo>();
 		queue = new Queue<Comparendo>();
+		//TAMAÑO DE LA TABLA DE HASH
+		hashTableSC = new HashSeparateChaining();
 		
 		try {
 			FileInputStream inputStream;
-			inputStream = new FileInputStream(ARCHIVO_MEDIANO);
+			inputStream = new FileInputStream(ARCHIVO_PEQUENO);
 			InputStreamReader inputStreamreader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamreader);
 
@@ -143,10 +150,33 @@ public class Controller {
 				
 				
 				
-				//Carga en Hash Table
+				//Carga en Hash Table Separate Chaining
+				hashTableSC.add((new Comparendo(coleccionComparendos.features[i].properties.OBJECTID, 
+	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
+	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
+	        			coleccionComparendos.features[i].properties.CLASE_VEHICULO,
+	        			coleccionComparendos.features[i].properties.TIPO_SERVICIO, 
+	        			coleccionComparendos.features[i].properties.INFRACCION, 
+	        			coleccionComparendos.features[i].properties.DES_INFRACCION, 
+	        			coleccionComparendos.features[i].properties.LOCALIDAD, 
+	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
+	        			coleccionComparendos.features[i].geometry.coordinates[0], 
+	        			coleccionComparendos.features[i].geometry.coordinates[1])).key.hashCOde()
+						,new Comparendo(coleccionComparendos.features[i].properties.OBJECTID, 
+	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
+	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
+	        			coleccionComparendos.features[i].properties.CLASE_VEHICULO,
+	        			coleccionComparendos.features[i].properties.TIPO_SERVICIO, 
+	        			coleccionComparendos.features[i].properties.INFRACCION, 
+	        			coleccionComparendos.features[i].properties.DES_INFRACCION, 
+	        			coleccionComparendos.features[i].properties.LOCALIDAD, 
+	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
+	        			coleccionComparendos.features[i].geometry.coordinates[0], 
+	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
 				
-				//Carga en Balanced Tree
+				
+				//Carga en Hash Table Linear Probing
 				
 				
 			}
@@ -157,16 +187,17 @@ public class Controller {
 			tiempoCarga = (tiempoFin-tiempoInicio)/1000;
 			
 		}catch (Exception e){
+			//System.out.println("No se encontró el archivo de datos");
 			e.getStackTrace();
 		}
 		
-		//PRUEBA
-		System.out.println("----------------------------------------------------------------------------------------------------------------");
-		System.out.println("Total comparendos en el archivo: "+ lista.getSize());
-		//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
-		System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
-		System.out.println("El tamaño de la lista es: "+ lista.getSize());
-		System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");
+		//OUTPUT en consola con información de la carga
+		System.out.println("");
+		System.out.println("Total comparendos en el archivo: "+ hashTableSC.getSize());
+			//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
+	//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
+		// System.out.println("El tamaño de la lista es: "+ lista.getSize());
+		// System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");
 		
 		
 	}

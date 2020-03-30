@@ -55,16 +55,6 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 		for (int i=0; i<harray.length;i++){
 			harray[i] = new LinkedList<HashElement<K,V>>();
 		}
-		
-		/*
-		LinkedList<K> list = new LinkedList<K>();
-		
-		for (int i=0; i<tableSize;i++){			
-			
-			 HashElement<K, LinkedList<HashElement<K,V>>> element = harray[i];
-			
-		}
-		*/
 
 	}
 	
@@ -133,6 +123,9 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 		return numElements;
 	}
 
+	
+	//SE USA EN LA SEGUNDA ENTREGA DEPENDIENDO DEL REQUERIMIENTO, NO SE IMPLEMENTA EN LA ESTAPA DE DISENIO
+	//RETORNA UNA LISTA DE HASHELEMENTS
 	@Override
 	public V getValue(K key) {
 		// TODO Auto-generated method stub
@@ -140,12 +133,7 @@ public class HashSeparateChaining<K,V> implements IHashSeparateChaining<K,V> {
 	}
 	
 	
-	//prueba
-	/*
-	public String getPrimero(){
-		return harray[0].getFirst().data.value.toString();
-	}
-	*/
+
 	
 	
 	

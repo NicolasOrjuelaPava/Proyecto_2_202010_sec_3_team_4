@@ -102,7 +102,7 @@ public class Controller {
 		
 		try {
 			FileInputStream inputStream;
-			inputStream = new FileInputStream(ARCHIVO_PEQUENO);
+			inputStream = new FileInputStream(ARCHIVO_GRANDE);
 			InputStreamReader inputStreamreader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamreader);
 

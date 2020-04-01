@@ -154,9 +154,7 @@ public class Controller {
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
-				//Carga en Priority Queue - Binary Heap
-				
-				
+
 				
 				//Carga en Hash Table Separate Chaining
 				hashTableSC.add((new Comparendo(coleccionComparendos.features[i].properties.OBJECTID, 
@@ -182,8 +180,6 @@ public class Controller {
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
-				
-				//Carga en Hash Table Linear Probing
 				
 				
 				
@@ -218,8 +214,8 @@ public class Controller {
 		System.out.println("El comparendo con el mayor OBJECTID encontrado es: ");
 		System.out.println( mayorID+ " " + fecha +" " + infraccion + " " + clase_vehiculo + " " + tipo_servicio + " " + localidad);
 		
-		//System.out.println("El comparendo con mayor OBJECTID es: "+ modelo.comparendoMayorObjectID().toString());
-	//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
+
+		//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
 		// System.out.println("El tamaño de la lista es: "+ lista.getSize());
 		// System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");
 	}

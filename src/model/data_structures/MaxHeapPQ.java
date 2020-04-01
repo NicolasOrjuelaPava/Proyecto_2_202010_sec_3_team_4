@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public class MaxHeapPQ <K extends Comparable<K>> {
+public class MaxHeapPQ <K extends Comparable<K>> implements IMaxHeapPQ<K> {
 
 	//atributos
 	private K[] heapArray;

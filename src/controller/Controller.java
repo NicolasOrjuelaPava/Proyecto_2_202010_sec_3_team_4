@@ -11,6 +11,7 @@ import model.data_structures.Comparendo;
 import model.data_structures.Comparendo.KeyComparendo;
 import model.data_structures.HashSeparateChaining;
 import model.data_structures.LinkedList;
+import model.data_structures.MaxHeapPQ;
 import model.data_structures.Queue;
 import model.data_structures.Stack;
 import model.logic.Modelo;
@@ -31,6 +32,7 @@ public class Controller {
 	private static Stack<Comparendo> stack;
 	private static Queue<Comparendo> queue;
 	private static HashSeparateChaining hashTableSC;
+	private static MaxHeapPQ maxHeap;
 	
 	private static Modelo modelo;
 	
@@ -97,8 +99,8 @@ public class Controller {
 		lista = new LinkedList<Comparendo>();
 		stack = new Stack<Comparendo>();
 		queue = new Queue<Comparendo>();
-		//TAMAÑO DE LA TABLA DE HASH
 		hashTableSC = new HashSeparateChaining();
+		maxHeap = new MaxHeapPQ();
 		
 		try {
 			FileInputStream inputStream;
@@ -180,7 +182,19 @@ public class Controller {
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
-				
+				//Carga en MxHeapPQ - Priority Queue
+				maxHeap.add(new Comparendo(
+						coleccionComparendos.features[i].properties.OBJECTID, 
+	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
+	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
+	        			coleccionComparendos.features[i].properties.CLASE_VEHICULO,
+	        			coleccionComparendos.features[i].properties.TIPO_SERVICIO, 
+	        			coleccionComparendos.features[i].properties.INFRACCION, 
+	        			coleccionComparendos.features[i].properties.DES_INFRACCION, 
+	        			coleccionComparendos.features[i].properties.LOCALIDAD, 
+	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
+	        			coleccionComparendos.features[i].geometry.coordinates[0], 
+	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
 				
 				//coger el mayor de una vez y cogerme la info

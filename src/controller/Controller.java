@@ -36,9 +36,9 @@ public class Controller {
 	
 	private static Modelo modelo;
 	
-	private static final String ARCHIVO_PEQUENO = "./data/Comparendos_DEI_2018_Bogot·_D.C_small.geojson";
-	private static final String ARCHIVO_MEDIANO = "./data/Comparendos_DEI_2018_Bogot·_D.C_50000_.geojson";
-	private static final String ARCHIVO_GRANDE = "./data/Comparendos_DEI_2018_Bogot·_D.C.geojson";
+	private static final String ARCHIVO_PEQUENO = "./data/Comparendos_DEI_2018_Bogot√°_D.C_small.geojson";
+	private static final String ARCHIVO_MEDIANO = "./data/Comparendos_DEI_2018_Bogot√°_D.C_50000_.geojson";
+	private static final String ARCHIVO_GRANDE = "./data/Comparendos_DEI_2018_Bogot√°_D.C.geojson";
 	public static double tiempoCarga;
 	public static double tiempoInicio;
 	public static double tiempoFin;
@@ -183,7 +183,7 @@ public class Controller {
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
 				
 				//Carga en MxHeapPQ - Priority Queue
-				maxHeap.add(new Comparendo(
+				/*maxHeap.add(new Comparendo(
 						coleccionComparendos.features[i].properties.OBJECTID, 
 	        			coleccionComparendos.features[i].properties.FECHA_HORA, 
 	        			coleccionComparendos.features[i].properties.MEDIO_DETECCION,
@@ -195,7 +195,7 @@ public class Controller {
 	        			coleccionComparendos.features[i].properties.MUNICIPIO, 
 	        			coleccionComparendos.features[i].geometry.coordinates[0], 
 	        			coleccionComparendos.features[i].geometry.coordinates[1]));
-				
+				*/
 				
 				//coger el mayor de una vez y cogerme la info
 				mayorID=coleccionComparendos.features[i].properties.OBJECTID;
@@ -217,11 +217,11 @@ public class Controller {
 			tiempoCarga = (tiempoFin-tiempoInicio)/1000;
 			
 		}catch (Exception e){
-			//System.out.println("No se encontrÛ el archivo de datos");
+			//System.out.println("No se encontr√≥ el archivo de datos");
 			e.getStackTrace();
 		}
 		
-		//OUTPUT en consola con informaciÛn de la carga
+		//OUTPUT en consola con informaci√≥n de la carga
 		System.out.println("");
 		System.out.println("Total comparendos en el archivo: "+ hashTableSC.getSize());
 		//System.out.println(hashTableSC.getPrimero());
@@ -230,7 +230,7 @@ public class Controller {
 		
 
 		//	System.out.println("El primer Comparendo es: "+ lista.getFirst().toString());
-		// System.out.println("El tamaÒo de la lista es: "+ lista.getSize());
+		// System.out.println("El tama√±o de la lista es: "+ lista.getSize());
 		// System.out.println("El tiempo de carga de los datos fue: "+ tiempoCarga + " segundos");
 	}
 	

@@ -1,5 +1,6 @@
 package main;
 
+import controller.Controller;
 import view.View;
 
 public class main {
@@ -9,7 +10,7 @@ public class main {
 	public static void main(String[] args) {
 	
 		view = new View();
-
+		
 	}
 
 

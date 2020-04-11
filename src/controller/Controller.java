@@ -42,6 +42,7 @@ public class Controller {
 	}
 	
 	//----PARTE A----
+	//Agregar cada requerimiento de esta forma
 	public  void req0(){
 
 		modelo.req0();
@@ -49,7 +50,7 @@ public class Controller {
 	}
 	
 
-	public  void req1(){
+	public  void req1A(){
 		
 		System.out.println("Ingrese la el OBJECTID del comparendo que desea consultar: ");
 		int idBuscado = sc.nextInt();
@@ -58,13 +59,17 @@ public class Controller {
 	}
 	
 	
-	public  void req2(){
+	public  void req2A(){
 
 		System.out.println("Ingrese el OBJECTID INFERIOR: ");
 		int id_inferior = sc.nextInt();
 		System.out.println("Ingrese el OBJECTID SUPERIOR: ");
 		int id_superior = sc.nextInt();
 		modelo.req3(id_inferior, id_superior);
+		
+	}
+	
+	public void req3A(){
 		
 	}
 	

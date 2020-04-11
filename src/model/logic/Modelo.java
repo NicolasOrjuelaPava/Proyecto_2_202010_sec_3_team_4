@@ -48,7 +48,7 @@ public class Modelo {
 		
 		static int valMin;
 		static int valMax;
-
+		static String mayorComparendo;
 
 		//------------------------CLASES INTERNAS-----------------------------------------------
 		//modelamiento del JSon
@@ -135,7 +135,15 @@ public class Modelo {
 					int temp = coleccionComparendos.features[i].properties.OBJECTID;;
 					if (temp > valMax){
 						valMax = temp;
+						mayorComparendo = coleccionComparendos.features[i].properties.OBJECTID + " "+ 
+								coleccionComparendos.features[i].properties.FECHA_HORA + " " +
+								coleccionComparendos.features[i].properties.INFRACCION + " " +
+			        			coleccionComparendos.features[i].properties.CLASE_VEHICULO + " " +
+			        			coleccionComparendos.features[i].properties.TIPO_SERVICIO +  " "+
+			        			coleccionComparendos.features[i].properties.LOCALIDAD;
 					}
+					
+		
 					
 					/*
 					fecha = coleccionComparendos.features[i].properties.FECHA_HORA;
@@ -147,11 +155,13 @@ public class Modelo {
 					
 					
 					//Coger el menor ID
+					
+					/*
 					int temp2 = coleccionComparendos.features[i].properties.OBJECTID;
 					if (temp2<valMin){
 						valMin = temp2;
 					}
-					
+					*/
 				
 				}
 				
@@ -185,11 +195,10 @@ public class Modelo {
 
 			//System.out.println(arbol.height());
 			System.out.println("El tamanio es: " +arbol.size());
-			System.out.println("El valor MINIMO de OBJECT ID es: " + valMin);
-			System.out.println("El valor MAXIMO de OBJECT ID es: " + valMax);
+			System.out.println(mayorComparendo);
 	}
 	
-	//Funciona perfecto
+	//Agregar cada requerimiento de esta forma
 	public void req2(int idBuscado){
 		keyComparendo k = new keyComparendo(idBuscado);
 		

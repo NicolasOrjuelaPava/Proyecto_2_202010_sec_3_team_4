@@ -52,21 +52,12 @@ public class Controller {
 
 	public  void req1A(){
 		
-		System.out.println("Ingrese la el OBJECTID del comparendo que desea consultar: ");
-		int idBuscado = sc.nextInt();
-		modelo.req2(idBuscado);
-		
+
 	}
 	
 	
 	public  void req2A(){
 
-		System.out.println("Ingrese el OBJECTID INFERIOR: ");
-		int id_inferior = sc.nextInt();
-		System.out.println("Ingrese el OBJECTID SUPERIOR: ");
-		int id_superior = sc.nextInt();
-		modelo.req3(id_inferior, id_superior);
-		
 	}
 	
 	public void req3A(){
@@ -74,6 +65,34 @@ public class Controller {
 	}
 	
 	
+	//----- PARTE B----
 	
+	public void req1B(){
+		
+	}
+	
+	public void req2B(){
+		
+	}
+	
+	public void req3B(){
+		
+	}
+	
+	//----PARTE C---
+	
+	public void req1C(){
+		
+	}
+	
+	public void req2C(){
+		
+	}
+	
+	public void req3C(){
+		
+	}
+	
+	//NO OLVIDAR LA CONCLUSION
 	
 }

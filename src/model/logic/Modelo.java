@@ -186,11 +186,7 @@ public class Modelo {
 	
 	
 	//------------------------REQUERIMIENTOS-----------------------------------------------
-		
-
-	//-----PARTE A----- 
-	
-	// 1 carga
+	// 1 carga, dejar este así
 	public static void req0(){
 
 			//System.out.println(arbol.height());
@@ -198,52 +194,53 @@ public class Modelo {
 			System.out.println(mayorComparendo);
 	}
 	
-	//Agregar cada requerimiento de esta forma
-	public void req2(int idBuscado){
-		keyComparendo k = new keyComparendo(idBuscado);
-		
-		try{
-		if (arbol.get(k).toString() == null){
-			System.out.println("No existe un comparendo con ese OBJECTID");
-		}else{
-			System.out.println(arbol.get(k).toString());
-			System.out.println("");
-			}
-		}catch (Exception e){
-			System.out.println("");
-			System.out.println("No existe un comparendo con ese OBJECTID");
-			System.out.println("");
-		}
-	}
 	
-	//Consultar los comparendos con un id en un rango específico
-	public void req3(int id_inferior, int id_superior){
-		
-		keyComparendo k_inf = new keyComparendo(id_inferior);
-		keyComparendo k_sup = new keyComparendo(id_superior);
-		
-		/*
-		while(arbol.valuesInRange(k_inf, k_sup).hasNext()){
-			System.out.print(arbol.valuesInRange(k_inf, k_sup).next().toString());
-		}
-		
-		while(arbol.keysInRange(k_inf, k_sup).hasNext()){
-			System.out.print(arbol.keysInRange(k_inf, k_sup).next().toString());
-		} */
+	
+	//---PARTE A---
+	public  void req1A(){
 		
 
-		Iterable<keyComparendo> it= (Iterable<keyComparendo>) arbol.keysInRange(k_inf, k_sup);
 		
-		Iterator<keyComparendo> ite= it.iterator();
+	}
+	
+	
+	public  void req2A(){
+
+
+	}
+	
+	public void req3A(){
 		
-		while(ite.hasNext()) 
-		{
-			
-			keyComparendo k = (keyComparendo) ite.next();
-			
-			System.out.println(arbol.get(k).toString());
-		}
+	}
+	
+	
+	
+	//----- PARTE B----
+	
+	public void req1B(){
 		
+	}
+	
+	public void req2B(){
+		
+	}
+	
+	public void req3B(){
+		
+	}
+	
+	
+	//----PARTE C---
+	
+	public void req1C(){
+		
+	}
+	
+	public void req2C(){
+		
+	}
+	
+	public void req3C(){
 		
 	}
 	
